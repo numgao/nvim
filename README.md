@@ -1,1 +1,3 @@
 # nvim
+# the nvim configuration
+
