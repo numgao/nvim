@@ -6,6 +6,8 @@ int main() {
         printf("i = %ld\n", i);
     }
     printf("bye!\n");
+    printf("bye again\n");
+    printf("bye again!\n");
     return 0;
 }
 
