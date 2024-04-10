@@ -21,44 +21,44 @@ local dap = require("dap")
 --}
 --
 --------------------------------------------------
-dap.adapters.codelldb = {
-    type = 'server',
-    host = '127.0.0.1',
-    port = '13000', 
-    --port = "${port}",
-    executable = {
-        command = '/Users/gao/lang/Driver/codelldb-aarch64-darwin/extension/adapter/codelldb',
-        args = {"--port", "${port}"},
-        detached = false,
-    }
-}
-
---dap.adapters.lldb = {
---    type = 'executable',
---    command = '/usr/bin/lldb',
---    name = 'lldb'
+--dap.adapters.codelldb = {
+--    type = 'server',
+--    host = '127.0.0.1',
+--    port = '13000', 
+--    --port = "${port}",
+--    executable = {
+--        command = '/Users/gao/lang/Driver/codelldb-aarch64-darwin/extension/adapter/codelldb',
+--        args = {"--port", "${port}"},
+--        detached = false,
+--    }
 --}
+
+dap.adapters.lldb = {
+    type = 'executable',
+    command = '/usr/bin/lldb',
+    name = 'lldb'
+}
 
 dap.configurations.cpp = {
     {
         name = "Launch file",
         --type = "cppdbg",
-        type = "codelldb",
-        --type = 'lldb',
+        --type = "codelldb",
+        type = 'lldb',
         request = "launch",
 
-        MIMode = "lldb",
-        miDebuggerServerAddress = 'localhost:13000',
-        miDebuggerPath = "/usr/bin//lldb", 
+        --MIMode = "lldb",
+        --miDebuggerServerAddress = 'localhost:13000',
+        --miDebuggerPath = "/usr/bin//lldb", 
         program = function()
             return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
         end,
 
         cwd = "${workspaceFolder}",
-        --stopAtEntry = false,
-        stopAtEntry = true,
+        stopOnEntry = false,
+        --stopAtEntry = true,
         terminal = 'intergrated',
-        -- args = {},
+        args = {},
         --MIMode = "gdb",
         --breakpointers = {
         --    exception = {

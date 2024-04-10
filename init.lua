@@ -22,7 +22,7 @@ require("plugin-config/symbols_outline")
 require("plugin-config/mason")
 require("plugin-config/dap-config")
 require("plugin-config/dap-ui")
-require('plugin-config/nvimgdb')
+--require('plugin-config/nvimgdb')
 require('plugin-config/gitsigns')
 --require('plugin-config/dap-cortex-debug')
 --

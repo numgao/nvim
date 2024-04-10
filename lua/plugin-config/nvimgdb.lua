@@ -4,17 +4,18 @@ vim.cmd([[
     let g:nvimgdb_use_find_executables = 0
     let g:nvimgdb_use_cmake_to_find_executables = 0
     let g:nvimgdb_config_override = {
-    \ 'sign_breakpoint': [''],
-    \ 'sign_current_line': '',
-    \ 'key_next': '<F10>',
-    \ 'key_step': '<F11>',
-    \ 'key_continue': '<F5>',
-    \ }
+    'sign_breakpoint': [''],
+    'sign_current_line': '',
+    'key_next': '<F10>',
+    'key_step': '<F11>',
+    'key_continue': '<F5>',
+    }
 ]])
 
 vim.cmd([[
     nnoremap <slient> <expr> <leader>dd ":GdbStart gdb -q " . input("debug file path: ") . "\<ESC>"
 ]])
+
 StartGdbSession = function()
     vim.api.nvim_command(":belowright GdbCreateWatch backtrace")
     vim.api.nvim_command(":wincmd h")

@@ -1,7 +1,5 @@
 require("lualine").setup()
 
-
-
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
@@ -47,28 +45,28 @@ local config = {
     },
     sections = {
         -- these are to remove the defaults
-        lualine_a = {},
-        lualine_b = {},
-        lualine_y = {},
-        lualine_z = {},
+        lualine_a = {'mode'},
+        lualine_b = {'filename'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'},
         -- These will be filled later
         --    lualine_c = {require('auto-session-library').current_session_name},
         lualine_x = {},
     },
     inactive_sections = {
         -- these are to remove the defaults
-        lualine_a = {},
+        lualine_a = {'mode'},
         lualine_b = {},
-        lualine_y = {},
-        lualine_z = {},
-        lualine_c = {},
+        lualine_y = {'progress'},
+        lualine_z = {'location'},
+        lualine_c = {'filename'},
         lualine_x = {},
     },
 }
 
 -- Inserts a component in lualine_c at left section
 local function ins_left(component)
-   -- table.insert(config.sections.lualine_c, component)
+    -- table.insert(config.sections.lualine_c, component)
 end
 
 -- Inserts a component in lualine_x ot right section
@@ -124,11 +122,11 @@ ins_left {
     cond = conditions.buffer_not_empty,
 }
 
-ins_left {
-    'filename',
-    cond = conditions.buffer_not_empty,
-    color = { fg = colors.magenta, gui = 'bold' },
-}
+--ins_left {
+--    'filename',
+--    cond = conditions.buffer_not_empty,
+--    color = { fg = colors.magenta, gui = 'bold' },
+--}
 
 ins_left { 'location' }
 
@@ -179,26 +177,26 @@ ins_right {
     'o:encoding', -- option component same as &encoding in viml
     fmt = string.upper, -- I'm not sure why it's upper case either ;)
     cond = conditions.hide_in_width,
-    color = { fg = colors.green, gui = 'bold' },
+    color = { fg = colors.green, gui = '' },
 }
 
 ins_right {
     'fileformat',
     fmt = string.upper,
     icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-    color = { fg = colors.green, gui = 'bold' },
+    color = { fg = colors.green, gui = '' },
 }
 
 ins_right {
     'branch',
     icon = '',
-    color = { fg = colors.violet, gui = 'bold' },
+    color = { fg = colors.violet, gui = '' },
 }
 
 ins_right {
     'diff',
     -- Is it me or the symbol for modified us really weird
-    symbols = { added = ' ', modified = '柳 ', removed = ' ' },
+    symbols = { added = ' ', modified = '~ ', removed = ' ' },
     diff_color = {
         added = { fg = colors.green },
         modified = { fg = colors.orange },
@@ -207,13 +205,13 @@ ins_right {
     cond = conditions.hide_in_width,
 }
 
-ins_right {
-    function()
-        return '▊'
-    end,
-    color = { fg = colors.blue },
-    padding = { left = 1 },
-}
+--ins_right {
+--    function()
+--        return '▊'
+--    end,
+--    color = { fg = colors.blue },
+--    padding = { left = 1 },
+--}
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
