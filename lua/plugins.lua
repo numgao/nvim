@@ -26,40 +26,40 @@ return require('packer').startup(function(use)
         --requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
     --use {'glepnir/dashboard-nvim'}
-    use {
-        'nvimdev/dashboard-nvim',
-        event = 'VimEnter',
-        config = function()
-            require('dashboard').setup {
-                -- config
-                config = {
-                    shortcut = {
-                        -- action can be a function type
-                        { desc = string, group = 'highlight group', key = 'shortcut key', action = 'action when you press key' },
-                    },
-                    packages = { enable = true }, -- show how many plugins neovim loaded
-                    -- limit how many projects list, action when you press key or enter it will run this action.
-                    -- action can be a functino type, e.g.
-                    -- action = func(path) vim.cmd('Telescope find_files cwd=' .. path) end
-                    project = { enable = true, limit = 8, icon = 'your icon', label = '', action = 'Telescope find_files cwd=' },
-                    mru = { limit = 10, icon = 'your icon', label = '', cwd_only = false },
-                    footer = {}, -- footer
-                }
-            }
-        end,
-        -- requires = {'nvim-tree/nvim-web-devicons'}
-    }
+--    use {
+--        'nvimdev/dashboard-nvim',
+--        event = 'VimEnter',
+--        config = function()
+--            require('dashboard').setup {
+--                -- config
+--                config = {
+--                    shortcut = {
+--                        -- action can be a function type
+--                        { desc = string, group = 'highlight group', key = 'shortcut key', action = 'action when you press key' },
+--                    },
+--                    packages = { enable = true }, -- show how many plugins neovim loaded
+--                    -- limit how many projects list, action when you press key or enter it will run this action.
+--                    -- action can be a functino type, e.g.
+--                    -- action = func(path) vim.cmd('Telescope find_files cwd=' .. path) end
+--                    project = { enable = true, limit = 8, icon = 'your icon', label = '', action = 'Telescope find_files cwd=' },
+--                    mru = { limit = 10, icon = 'your icon', label = '', cwd_only = false },
+--                    footer = { '', '  Have fun with neovim'}, -- footer
+--                }
+--            }
+--        end,
+--        -- requires = {'nvim-tree/nvim-web-devicons'}
+--    }
     use {"folke/which-key.nvim"}
     use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = { {'nvim-lua/plenary.nvim'} , 
-            --    {
-            --    'nvim-treesitter/nvim-treesitter',
-            --    run = function()
-            --        require('nvim-treesitter.install').update({ with_sync = true })
-            --    end,
-            --}
+        requires = { {'nvim-lua/plenary.nvim'} ,
+            {
+                'nvim-treesitter/nvim-treesitter',
+                run = function()
+                    require('nvim-treesitter.install').update({ with_sync = true })
+                end,
+            }
         }
     }
 
