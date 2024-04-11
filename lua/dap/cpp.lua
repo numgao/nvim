@@ -7,10 +7,10 @@ local dap = require("dap")
 --}
 --command = "/home/gao/.local/share/nvim/mason/bin/OpenDebugAD7",
 -- }
-
---    --   options = {
---    --       detached = false
---    --   }
+--
+----   options = {
+----       detached = false
+----   }
 --}
 --
 ----------------------------------------------------
@@ -21,44 +21,44 @@ local dap = require("dap")
 --}
 --
 --------------------------------------------------
---dap.adapters.codelldb = {
---    type = 'server',
---    host = '127.0.0.1',
---    port = '13000', 
---    --port = "${port}",
---    executable = {
---        command = '/Users/gao/lang/Driver/codelldb-aarch64-darwin/extension/adapter/codelldb',
---        args = {"--port", "${port}"},
---        detached = false,
---    }
---}
-
-dap.adapters.lldb = {
-    type = 'executable',
-    command = '/usr/bin/lldb',
-    name = 'lldb'
+dap.adapters.codelldb = {
+    type = 'server',
+    host = '127.0.0.1',
+    port = '13000', 
+    --port = "${port}",
+    executable = {
+        command = '/Users/gao/lang/Driver/codelldb-aarch64-darwin/extension/adapter/codelldb',
+        args = {"--port", "${port}"},
+        detached = false,
+    }
 }
+
+--dap.adapters.lldb = {
+--    type = 'executable',
+--    command = '/usr/bin/lldb',
+--    name = 'lldb',
+--}
 
 dap.configurations.cpp = {
     {
         name = "Launch file",
         --type = "cppdbg",
-        --type = "codelldb",
-        type = 'lldb',
-        request = "launch",
-
-        --MIMode = "lldb",
+        type = "codelldb",
+        --type = 'lldb',
+        request = 'launch',
+        --MIMode = 'lldb',
         --miDebuggerServerAddress = 'localhost:13000',
-        --miDebuggerPath = "/usr/bin//lldb", 
+        --miDebuggerPath = '/usr/bin',
+        --        program = "test.out",
         program = function()
             return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
         end,
 
-        cwd = "${workspaceFolder}",
-        stopOnEntry = false,
+        cwd = '${workspaceFolder}',
+        stopAtEntry = false,
         --stopAtEntry = true,
-        terminal = 'intergrated',
-        args = {},
+        -- terminal = 'intergrated',
+        --args = {},
         --MIMode = "gdb",
         --breakpointers = {
         --    exception = {
