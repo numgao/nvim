@@ -1,7 +1,7 @@
 local opt = require("toggleterm").setup({
     open_mapping = [[<c-\>]],
     -- 以弹出式窗口的形式打开新终端 float horizontal
-    direction = 'float'
+    direction = 'horizontal'
 })
 
 

@@ -1,5 +1,5 @@
 test.out: test.o	
-	gcc test.o -o test.out -s
+	gcc test.o -o test.out -g
 
 test.o: test.c	
 	gcc -c test.c 

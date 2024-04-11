@@ -16,7 +16,7 @@ int main() {
     return 0;
 }
 
-int sub(void){
+int sub(void) {
     printf("This is from the sub!\n");
     int a = 1;
     int b = 2;
