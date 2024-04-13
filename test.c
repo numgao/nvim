@@ -9,7 +9,7 @@ int main() {
     }
 
     int c = sub();
-    printf("from sub c = %d\n", c);
+        printf("from sub c = %d\n", c);
     printf("bye again\n");
     printf("bye again!\n");
     getchar();

@@ -1,0 +1,11 @@
+[
+ {
+  "directory": "/Users/gao/.config/nvim",
+  "arguments": [
+   "gcc",
+   "-c",
+   "test.c"
+  ],
+  "file": "test.c"
+ }
+]

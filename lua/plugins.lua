@@ -11,7 +11,6 @@ return require('packer').startup(function(use)
 
     use { 'nvim-tree/nvim-web-devicons'}
 
-
     use { 'nvim-tree/nvim-tree.lua' }
     -- ,
     --    requires = {
@@ -54,12 +53,12 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.6',
         requires = { {'nvim-lua/plenary.nvim'} ,
-           -- {
-           --     'nvim-treesitter/nvim-treesitter',
-           --     run = function()
-           --         require('nvim-treesitter.install').update({ with_sync = true })
-           --     end,
-           -- }
+            -- {
+            --     'nvim-treesitter/nvim-treesitter',
+            --     run = function()
+            --         require('nvim-treesitter.install').update({ with_sync = true })
+            --     end,
+            -- }
         }
     }
 
@@ -71,7 +70,7 @@ return require('packer').startup(function(use)
     }
 
     use { "nvim-telescope/telescope-file-browser.nvim" }
-    --    use {'rmagatti/auto-session'}
+    use {'rmagatti/auto-session'}
     use {"williamboman/mason.nvim"}
     --    use {"neovim/nvim-lspconfig"}
     -- nvim-cmp
@@ -80,14 +79,16 @@ return require('packer').startup(function(use)
     use {'hrsh7th/cmp-path'}
     use {'hrsh7th/cmp-cmdline'}
     use {'hrsh7th/nvim-cmp'}
+
     -- vsnip
     use {'hrsh7th/cmp-vsnip'}
     use {'hrsh7th/vim-vsnip'}
     use {'rafamadriz/friendly-snippets'}
     -- lspkind
+    --
     use {'onsails/lspkind-nvim'}
+
     -- lspsaga
-    -- use {'glepnir/lspsaga.nvim'}
     use ({
         'nvimdev/lspsaga.nvim',
         after = 'nvim-lspconfig',
@@ -110,10 +111,12 @@ return require('packer').startup(function(use)
     --git
     use {'lewis6991/gitsigns.nvim'}
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-    --    use { "williamboman/nvim-lsp-installer", "neovim/nvim-lspconfig" }
+
     use { "neovim/nvim-lspconfig" }
 
     use { "nvim-neotest/nvim-nio"}
+
+    -- individual setup
     use { 'jedrzejboczar/nvim-dap-cortex-debug' }
 end)
 
