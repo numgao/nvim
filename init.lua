@@ -25,7 +25,8 @@ require("plugin-config/dap-ui")
 require('plugin-config/gitsigns')
 require('plugin-config/dap-cortex-debug')
 --
--- 启用主题
+vim.api.nvim_call_function("codeium#GetStatusString", {} )
+    -- 启用主题
 vim.cmd[[colorscheme tokyonight]]
 -- vim.cmd[[colorscheme vscode]]
 

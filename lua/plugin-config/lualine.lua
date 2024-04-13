@@ -59,7 +59,7 @@ local config = {
     },
     inactive_sections = {
         -- these are to remove the defaults
-        lualine_a = {'filename'},
+        lualine_a = {},
         lualine_b = {'progress'},
         lualine_y = {},
         lualine_z = {},
@@ -77,14 +77,28 @@ end
 local function ins_right(component)
     table.insert(config.sections.lualine_x, component)
 end
+--------------------------------------------------------------------------------
+--
+local function inactive_ins_left(component)
+    table.insert(config.inactive_sections.lualine_a, component)
+end
 
-ins_left {
-    function()
-        return '▊'
-    end,
-    color = { fg = colors.blue }, -- Sets highlighting of component
-    padding = { left = 0, right = 1 }, -- We don't need space before this
+inactive_ins_left {
+    'filename',
+    cond = conditions.buffer_not_empty,
+    color = { fg = colors.magenta, gui = 'bold' },
 }
+
+
+--------------------------------------------------------------------------------
+--
+--ins_left {
+--    function()
+--        return '▊'
+--    end,
+--    color = { fg = colors.blue }, -- Sets highlighting of component
+--    padding = { left = 0, right = 1 }, -- We don't need space before this
+--}
 
 ins_left {
     -- mode component
@@ -145,6 +159,12 @@ ins_left {
         color_warn = { fg = colors.yellow },
         color_info = { fg = colors.cyan },
     },
+}
+
+ins_left{
+    function()
+        return vim.api.nvim_call_function("codeium#GetStatusString", {})
+    end,
 }
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -209,13 +229,13 @@ ins_right {
     cond = conditions.hide_in_width,
 }
 
-ins_right {
-    function()
-        return '▊'
-    end,
-    color = { fg = colors.blue },
-    padding = { left = 1 },
-}
+--ins_right {
+--    function()
+--        return '▊'
+--    end,
+--    color = { fg = colors.blue },
+--    padding = { left = 1 },
+--}
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)

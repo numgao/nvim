@@ -9,9 +9,10 @@ int main() {
     }
 
     int c = sub();
-        printf("from sub c = %d\n", c);
+    printf("from sub c = %d\n", c);
     printf("bye again\n");
-    printf("bye again!\n");
+    printf("Press any key to continue ...\n");
+
     getchar();
     return 0;
 }
@@ -20,6 +21,10 @@ int sub(void) {
     printf("This is from the sub!\n");
     int a = 1;
     int b = 2;
+    printf("a = %d, b = %d\n", a, b);
+    printf("a + b = %d\n", a + b);
+    printf("a - b = %d\n", a - b);
+    printf("a * b = %d\n", a * b);
     return(a + b);
 }
 

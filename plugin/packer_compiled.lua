@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/Users/gao/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["codeium.vim"] = {
+    loaded = true,
+    path = "/Users/gao/.local/share/nvim/site/pack/packer/start/codeium.vim",
+    url = "https://github.com/Exafunction/codeium.vim"
+  },
   ["diffview.nvim"] = {
     loaded = true,
     path = "/Users/gao/.local/share/nvim/site/pack/packer/start/diffview.nvim",

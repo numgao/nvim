@@ -118,5 +118,6 @@ return require('packer').startup(function(use)
 
     -- individual setup
     use { 'jedrzejboczar/nvim-dap-cortex-debug' }
+    use { 'Exafunction/codeium.vim'}
 end)
 
