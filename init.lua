@@ -25,6 +25,7 @@ require("plugin-config/dap-ui")
 require('plugin-config/gitsigns')
 require('plugin-config/dap-cortex-debug')
 require('plugin-config/lazygit')
+require('plugin-config/ibl')
 --
 vim.api.nvim_call_function("codeium#GetStatusString", {} )
 -- 启用主题
