@@ -10,14 +10,17 @@ require('dap-cortex-debug').setup {
     dap_vscode_filetypes = { 'c', 'cpp' },
 }
 
-
 local dap_cortex_debug = require('dap-cortex-debug')
 require('dap').configurations.c = {
     dap_cortex_debug.openocd_config {
         name = 'Example debugging with OpenOCD',
         cwd = '${workspaceFolder}',
-        executable = '${workspaceFolder}/build/app',
-        configFiles = { '${workspaceFolder}/build/openocd/connect.cfg' },
+        executable = '${workspaceFolder}/LF.bin',
+        configFiles = {
+            'interface/stlink.cfg',
+            'target/stm32f4x.cfg'
+        },
+        --'${workspaceFolder}/build/openocd/connect.cfg' },
         gdbTarget = 'localhost:3333',
         rttConfig = dap_cortex_debug.rtt_config(0),
         showDevDebugOutput = false,

@@ -116,8 +116,16 @@ return require('packer').startup(function(use)
 
     use { "nvim-neotest/nvim-nio"}
 
-    -- individual setup
+    -- user setup
     use { 'jedrzejboczar/nvim-dap-cortex-debug' }
     use { 'Exafunction/codeium.vim'}
+    -- nvim v0.7.2
+    use({
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    })
 end)
 

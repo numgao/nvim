@@ -41,6 +41,28 @@ vim.api.nvim_set_keymap("v", "<<", "<<gv", {noremap = true, silent = true})
 -- 定义 symbols-outline 快捷键
 vim.api.nvim_set_keymap("n", "<leader>so", "<cmd>SymbolsOutline<CR>", {silent = true, noremap = true})
 
+-- My defined keymaps
+--
+-- save file
+vim.api.nvim_set_keymap("n", "<leader>w", ":w<CR>", {noremap = true, silent = true})
+-- source %
+vim.api.nvim_set_keymap("n", "<leader>%", ":<C-u>source %<CR>", {noremap = true, silent = true})
+-- open kebindings.lua
+vim.api.nvim_set_keymap("n", "<leader>ek", ":e /Users/gao/.config/nvim/lua/keybindings.lua<CR>", {noremap = true, silent = true})
+-- LspStart
+vim.api.nvim_set_keymap("n", "<leader>ls", ":LspStart<CR>", {noremap = true, silent = true})
+-- open init.lua
+vim.api.nvim_set_keymap("n", "<leader>ei", ":e /Users/gao/.config/nvim/init.lua<CR>", {noremap = true, silent = true})
+-- open plugins.lua
+vim.api.nvim_set_keymap("n", "<leader>ep", ":e /Users/gao/.config/nvim/lua/plugins.lua<CR>", {noremap = true, silent = true})
+
+-- setup mapping to call :LazyGit
+vim.api.nvim_set_keymap("n", "<leader>lg", ":LLazyGit<CR>", {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap("n", "<leader>q", ":wq<CR>", {noremap = true, silent = true})
+
+-- end of my define     
+--
 -- lsp 快捷键定义
 local lsp_keybinds = {}
 
@@ -70,10 +92,10 @@ lsp_keybinds.set_keymap = function (bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {silent = true, noremap = true})
     --    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", {silent = true, noremap = true})
     -- dap
-    --    vim.keymap.set({"i", "n", "v"}, "<F5>", "<cmd>lua require'dap'.continue()<CR>", {silent = true, noremap = true, buffer = bufnr})
-    --    vim.keymap.set({"i", "n", "v"}, "<F10>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
-    --    vim.keymap.set({"i", "n", "v"}, "<F12>", "<cmd>lua require'dap'.step_into()<CR>", {silent = true, noremap = true, buffer = bufnr})
-    --    vim.keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true, buffer = bufnr})
+    vim.keymap.set({"i", "n", "v"}, "<F7>", "<cmd>lua require'dap'.continue()<CR>", {silent = true, noremap = true, buffer = bufnr})
+    vim.keymap.set({"i", "n", "v"}, "<F8>", "<cmd>lua require'dap'.step_over()<CR>", {silent = true, noremap = true, buffer = bufnr})
+    vim.keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.step_into()<CR>", {silent = true, noremap = true, buffer = bufnr})
+    vim.keymap.set({"i", "n", "v"}, "<F10>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true, buffer = bufnr})
 end
 
 vim.cmd[[imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>']]
